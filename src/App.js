@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let sana = 'Kissa'
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +17,8 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Jotain muuta
+          {sana}
         </a>
       </header>
     </div>
