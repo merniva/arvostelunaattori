@@ -33,7 +33,7 @@ export default class TodoList extends Component {
 
   render() {
     return (
-      <div><h1>Dodo-list</h1>
+      <div><h1>Ostoslista</h1>
         <form className="TodoList" onSubmit={this.onSubmit}>
             <input value={this.state.term} onChange={this.onChange} />
             <button>Päivitä</button>
