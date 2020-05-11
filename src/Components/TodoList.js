@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
+import { Button } from 'react-bootstrap';
 import List from './List';
 
 export default class TodoList extends Component {
@@ -36,7 +37,8 @@ export default class TodoList extends Component {
       <div><h1>Ostoslista</h1>
         <form className="TodoList" onSubmit={this.onSubmit}>
             <input value={this.state.term} onChange={this.onChange} />
-            <button>Päivitä</button>
+            <Button>Päivitä</Button>
+            <button type="button" className="btn btn-primary">Primary</button>
         </form>
         <List remove={this.remove} items={this.state.items} jauheliha={this.state.jauheliha}/>
       </div>
