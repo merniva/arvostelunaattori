@@ -10,11 +10,7 @@ import Footer from './Components/Footer'
 import Home from './Views/Home'
 import Register from './Views/Register';
 import Login from './Views/Login';
-//import { Button } from 'react-bootstrap';
 import './App.css';
-//import "bootswatch/dist/minty/bootstrap.min.css"; 
-import './Bootswatch.css';
-//import TodoList from './Components/TodoList';
 
 
 function LoginRequired({ loggedIn, children, ...rest}) {
@@ -65,7 +61,6 @@ function App() {
           </Route>
           <Route path="/login">
             <div>
-              <p>Kirjaudu sisään</p>
               <Login setLoginStatus={setLoginStatus} />
             </div>
           </Route>
