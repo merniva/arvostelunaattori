@@ -29,6 +29,8 @@ function LoginRequired({ loggedIn, children, ...rest}) {
 
 function LogOut({ setLoginStatus }) {
   useEffect(() => setLoginStatus(false))
+  localStorage.removeItem("access_token");
+  localStorage.removeItem("expire_at");
   return <div>
   <p>Olet kirjautunut ulos</p>
   </div>

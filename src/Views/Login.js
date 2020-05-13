@@ -9,9 +9,6 @@ const Login = ({ setLoginStatus }) => {
         console.log(inputs)
       Axios.post('http://localhost:80/React/login.php', inputs)
         .then(function (response) {
-          if (response.data.status_code !== 200) {
-            throw new Error("Virhe!")
-          } else if (response.status === 200 && response.data.jwt && response.data.expireAt) {
           // handle success
           console.log(response);
           alert('Olet kirjautunut sisään!', response);
@@ -22,7 +19,6 @@ const Login = ({ setLoginStatus }) => {
 
           localStorage.setItem("access_token", jwt);
           localStorage.setItem("expire_at", expire_at);
-          }
         })
         .catch(function (error) {
           // handle error

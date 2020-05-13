@@ -10,14 +10,9 @@ const Register = () => {
 
       Axios.post('http://localhost:80/React/register.php', inputs)
         .then(function (response) {
-          if (response.data.status_code !== 200) {
-            throw new Error("Virhe!")
-          } else if (response.status === 200) {
-          // handle success
           console.log(response);
-          alert('Olet kirjautunut sisään!', response);
+          alert('Rekisteröityminen onnistui, voit nyt kirjautua sisään!', response);
           history.push("/login");
-          }
         })
         .catch(function (error) {
           // handle error
