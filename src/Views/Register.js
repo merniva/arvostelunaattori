@@ -5,10 +5,25 @@ import {useHistory} from 'react-router-dom';
 
 
 const Register = () => {
+    let history = useHistory();
     const register = () => {
-        alert(`Käyttäjänimi luotu!
-               Name: ${inputs.name}
-               Email: ${inputs.email}`);
+
+      Axios.post('http://localhost:80/React/register.php', inputs)
+        .then(function (response) {
+          if (response.data.status_code !== 200) {
+            throw new Error("Virhe!")
+          } else if (response.status === 200) {
+          // handle success
+          console.log(response);
+          alert('Olet kirjautunut sisään!', response);
+          history.push("/login");
+          }
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+          alert('Rekisteröityminen ei onnistunut :(', error);
+        })
       }
       const {inputs, handleInputChange, handleSubmit, fieldErrors} = useRegisterForm( register);
       const renderFieldError = field => {
