@@ -7,16 +7,22 @@ const Login = ({ setLoginStatus }) => {
     let history = useHistory();
     const login = (inputs) => {
         console.log(inputs)
-      Axios.post('http://localhost:5000/login_json', inputs)
+      Axios.post('http://127.0.0.1:8000/login.php', inputs)
         .then(function (response) {
           if (response.data.status_code !== 200) {
             throw new Error("Virhe!")
-          }
+          } else if (response.status === 200 && response.data.jwt && response.data.expireAt) {
           // handle success
           console.log(response);
           alert('Olet kirjautunut sisään!', response);
           setLoginStatus(true);
           history.push("/profile");
+          let jwt = response.data.jwt;
+          let expire_at = response.data.expireAt;
+
+          localStorage.setItem("access_token", jwt);
+          localStorage.setItem("expire_at", expire_at);
+          }
         })
         .catch(function (error) {
           // handle error
