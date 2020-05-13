@@ -7,7 +7,7 @@ const Login = ({ setLoginStatus }) => {
     let history = useHistory();
     const login = (inputs) => {
         console.log(inputs)
-      Axios.post('http://127.0.0.1:8000/login.php', inputs)
+      Axios.post('http://localhost:80/React/login.php', inputs)
         .then(function (response) {
           if (response.data.status_code !== 200) {
             throw new Error("Virhe!")
@@ -42,14 +42,14 @@ const Login = ({ setLoginStatus }) => {
           </h1>
           <div className="md:flex md:items-center mb-6">
             <div className="md:w-1/3">
-              <label className="block text-grey font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-userName">
+              <label className="block text-grey font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-name">
                 Käyttäjänimi
               </label>
             </div>
             <div className="md:w-2/3">
-              <input type="text" name="userName" 
+              <input type="text" name="name" 
                 className="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple" 
-                onChange={handleInputChange} value={inputs.userName} required />
+                onChange={handleInputChange} value={inputs.name} required />
             </div>
           </div>
 
@@ -60,9 +60,9 @@ const Login = ({ setLoginStatus }) => {
             </label>
             </div>
             <div className="md:w-2/3">
-              <input type="password" name="password1" 
+              <input type="password" name="password" 
               className="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple"
-              onChange={handleInputChange} value={inputs.password1} />
+              onChange={handleInputChange} value={inputs.password} />
             </div>
           </div>
 

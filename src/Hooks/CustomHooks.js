@@ -3,12 +3,12 @@ import React, {useState} from 'react';
 
 const validationRules = {
     email: val => val && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
-    password1: val => val && val.length >5,
+    password: val => val && val.length >5,
     message: val => !!val,
   };
 
-const checkPassword = (password1, password2) => {
-    return password1 === password2;
+const checkPassword = (password, password2) => {
+    return password === password2;
 }
 
 
@@ -26,9 +26,9 @@ const useRegisterForm = (callback) => {
             }
         }
         const {
-            password1, password2
+            password, password2
         } = inputs;
-        const passwordsAreValid = checkPassword(password1, password2);
+        const passwordsAreValid = checkPassword(password, password2);
         if (!passwordsAreValid) {
             errors.password2 = true;
             hasErrors |= errors.password2;
