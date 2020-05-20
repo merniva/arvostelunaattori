@@ -2,6 +2,8 @@ import React from 'react';
 import { useLoginForm } from '../Hooks/CustomHooks';
 import Axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 
 const Login = ({ setLoginStatus }) => {
     let history = useHistory();
@@ -33,18 +35,27 @@ const Login = ({ setLoginStatus }) => {
         <form 
           className="w-full max-w-xs pl-3"
           onSubmit={handleSubmit}>
-          <h1 className="block text-lg font-bold leading-relaxed inline-block mb-4 py-2 whitespace-no-wrap">
-            Kirjaudu sisään
-          </h1>
+          <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+          </div>
+          <div className="md:w-2/3">
+            <h1 className="block text-lg font-bold leading-relaxed inline-block mb-2 py-2 whitespace-no-wrap">
+              Kirjaudu sisään
+            </h1>
+          </div>
+          </div>
           <div className="md:flex md:items-center mb-6">
             <div className="md:w-1/3">
               <label className="block text-grey font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-name">
-                Käyttäjänimi
+              {<FontAwesomeIcon 
+                    icon={faUser}
+                />}
               </label>
             </div>
             <div className="md:w-2/3">
               <input type="text" name="name" 
-                className="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple" 
+                className="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple"
+                placeholder="Kirjoita käyttäjänimesi" 
                 onChange={handleInputChange} value={inputs.name} required />
             </div>
           </div>
@@ -52,12 +63,15 @@ const Login = ({ setLoginStatus }) => {
           <div className="md:flex md:items-center mb-6">
             <div className="md:w-1/3">
             <label className="block text-grey font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-              Salasana
+            {<FontAwesomeIcon 
+                    icon={faLock}
+                />}
             </label>
             </div>
             <div className="md:w-2/3">
               <input type="password" name="password" 
               className="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple"
+              placeholder="Kirjoita salasanasi" 
               onChange={handleInputChange} value={inputs.password} />
             </div>
           </div>
@@ -66,7 +80,7 @@ const Login = ({ setLoginStatus }) => {
             <div className="md:w-1/3">
             </div>
             <div className="md:w-2/3">
-              <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Kirjaudu</button>
+              <button type="submit" className="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">Kirjaudu</button>
             </div>
           </div>
         </form>

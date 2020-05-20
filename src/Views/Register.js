@@ -93,7 +93,7 @@ const Register = () => {
             <div className="md:w-1/3">
             </div>
             <div className="md:w-2/3">
-              <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+              <button type="submit" className="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
               Rekisteröidy</button>
             </div>
           </div>

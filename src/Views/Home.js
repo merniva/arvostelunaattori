@@ -1,16 +1,16 @@
 import React from 'react'
 //import Loader from '../Components/Loader'
-//import ProductCard from '../Components/ProductCard'
+import TableCard from '../Components/TableCard'
 import { useAxiosGet } from '../Hooks/HttpRequests'
+import { Link } from "react-router-dom"
 
 function Home(){
-    let content = <p>
-        Tämä on contenttia
-        </p>
-    /*const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/products?page=1&limit=10`
-    let products = useAxiosGet(url)
+    const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/products?page=1&limit=5`
+    let tables = useAxiosGet(url)
+    
+    let content = null
 
-    if(products.error){
+    if(tables.error){
         content = <div>
             <div className="bg-red-300 p-3">
                 Odottamaton ongelma. Ole hyvä ja päivitä tai sulje sivu.
@@ -18,27 +18,35 @@ function Home(){
         </div>
     }
 
-    if(products.loading){
-        content = <Loader></Loader>
+    if(tables.loading){
+        content = <p>Ladataan...</p>//<Loader></Loader>
     }
 
-    if(products.data){
+    if(tables.data){
         content = 
-        products.data.map((product) => 
-            <div key={product.id} className="flex-no-shrink w-full md:w-1/4 md:px-3">
-                <ProductCard 
-                    product={product}
+        tables.data.map((table) => 
+            <div key={table.id} className="flex-no-shrink w-full md:w-1/4 md:px-3">
+                <TableCard 
+                    table={table}
                 />
             </div>
         )
-    } */
+    }
 
     return (
         <div className="container mx-auto">
-            <h1>
-                Tämä on etusivu
+            <h1 className="md:flex flex-wrap md:-mx-3 mb-4 justify-center">
+                Tämä on profiilisivu
             </h1>
-            <div>
+            <div className="md:flex flex-wrap md:-mx-3 mb-4 justify-center">
+            <Link 
+                to="/addboard"
+                className="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
+                >
+                    Lisää uusi taulu täältä
+            </Link>
+            </div>
+            <div className="md:flex flex-wrap md:-mx-3">
                 { content } 
             </div>
         </div>

@@ -364,14 +364,14 @@
   h1,
   h2,
   h3,
-  h4,
+
   h5,
   h6,
   hr,
   figure,
   p,
   pre {
-    margin-left: 5em;
+    margin-left: 0;
   }
   
   button {
@@ -8090,7 +8090,7 @@
   }
   
   .text-xs {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
   
   .text-sm {

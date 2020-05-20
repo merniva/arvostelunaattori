@@ -8,7 +8,7 @@ export default function Navbar({ fixed, loggedIn }) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
       <>
-        <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-green-500 mb-3">
+        <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-green-300 mb-3">
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               <a
@@ -36,7 +36,7 @@ export default function Navbar({ fixed, loggedIn }) {
                 <li className="nav-item">
                 <Link 
                 to="/" 
-                className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
+                className="px-3 py-2 flex items-center text-sm font-bold leading-snug text-white hover:opacity-75 hover:underline"
                 onClick={() => setNavbarOpen(false) }
                 >
                     Etusivu
@@ -45,7 +45,7 @@ export default function Navbar({ fixed, loggedIn }) {
                 <li className="nav-item">
                 <Link 
                 to="/about" 
-                className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
+                className="px-3 py-2 ml-3 flex items-center text-sm font-bold leading-snug text-white hover:opacity-75 hover:underline"
                 onClick={() => setNavbarOpen(false) }
                 >
                     About
@@ -55,7 +55,7 @@ export default function Navbar({ fixed, loggedIn }) {
                 {loggedIn &&
                 <Link 
                 to="/profile" 
-                className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
+                className="px-3 py-2 ml-3 flex items-center text-sm font-bold leading-snug text-white hover:opacity-75 hover:underline"
                 onClick={() => setNavbarOpen(false) }
                 >
                     Profiili
@@ -66,7 +66,7 @@ export default function Navbar({ fixed, loggedIn }) {
                 {loggedIn &&
                 <Link 
                 to="/logout" 
-                className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
+                className="px-3 py-2 ml-3 flex items-center text-sm font-bold leading-snug text-white hover:opacity-75 hover:underline"
                 onClick={() => setNavbarOpen(false) }
                 >
                     Kirjaudu ulos
@@ -77,7 +77,7 @@ export default function Navbar({ fixed, loggedIn }) {
                 {!loggedIn &&
                 <Link 
                 to="/login" 
-                className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
+                className="px-3 py-2 ml-3 flex items-center text-sm font-bold leading-snug text-white hover:opacity-75 hover:underline"
                 onClick={() => setNavbarOpen(false) }
                 >
                     Kirjaudu sisään
@@ -88,7 +88,7 @@ export default function Navbar({ fixed, loggedIn }) {
                 {!loggedIn &&
                 <Link 
                 to="/register" 
-                className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
+                className="px-3 py-2 flex items-center text-sm font-bold leading-snug text-white hover:opacity-75 hover:underline ml-3"
                 onClick={() => setNavbarOpen(false) }
                 >
                     Rekisteröidy

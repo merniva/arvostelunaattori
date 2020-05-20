@@ -9,6 +9,7 @@ import Axios from 'axios';
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Home from './Views/Home'
+import AddBoard from './Views/AddBoard'
 import Register from './Views/Register';
 import Login from './Views/Login';
 import './App.css';
@@ -53,20 +54,22 @@ function App() {
         <div className="p-3">
         <Switch>
           <Route exact path="/">
-            <Home />
+          <div>
+              <p>Tämä on etusivusi</p>
+            </div>
+            
           </Route>
           <LoginRequired loggedIn={loggedIn} path="/profile">
-            <div>
-              <p>Olet kirjautunut sisään ja tämä on profiilisivusi</p>
-            </div>
+            <Home />
+          </LoginRequired>
+          <LoginRequired loggedIn={loggedIn} path="/addboard">
+            <AddBoard />
           </LoginRequired>
           <Route loggedIn={loggedIn} path="/logout">
             <LogOut setLoginStatus={setLoginStatus} />
           </Route>
           <Route path="/login">
-            <div>
               <Login setLoginStatus={setLoginStatus} />
-            </div>
           </Route>
           <LoginRequired loggedIn={!loggedIn} path="/register">
             <Register />
@@ -74,8 +77,7 @@ function App() {
         </Switch>
         </div>
 
-        <Footer />
-
+       <Footer />
       </Router>
     </div>
   );
