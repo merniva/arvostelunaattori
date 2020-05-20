@@ -5,6 +5,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom"
+import Axios from 'axios';
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Home from './Views/Home'
@@ -12,6 +13,7 @@ import Register from './Views/Register';
 import Login from './Views/Login';
 import './App.css';
 
+window.post = (inputs) => Axios.post('http://localhost:80/React/addboard.php', inputs)
 
 function LoginRequired({ loggedIn, children, ...rest}) {
   return <Route {...rest} render={
