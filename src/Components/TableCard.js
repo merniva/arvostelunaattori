@@ -27,7 +27,7 @@ function TableCard(props){
                 </div>
                 <Link 
                     to={`/tables/${props.table.id}`}
-                    className="bg-teal-400 hover:bg-teal-600 text-white p-2 flex justify-center w-full font-bold py-2 px-4 rounded-full"
+                    className="bg-orange-400 hover:bg-orange-500 text-white p-2 flex justify-center w-full font-bold py-2 px-4 rounded-full"
                 >
                     View
                 </Link>

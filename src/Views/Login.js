@@ -80,7 +80,7 @@ const Login = ({ setLoginStatus }) => {
             <div className="md:w-1/3">
             </div>
             <div className="md:w-2/3">
-              <button type="submit" className="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">Kirjaudu</button>
+              <button type="submit" className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full">Kirjaudu</button>
             </div>
           </div>
         </form>

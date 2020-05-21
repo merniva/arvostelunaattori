@@ -41,7 +41,7 @@ function Home(){
             <div className="md:flex flex-wrap md:-mx-3 mb-4 justify-center">
             <Link 
                 to="/addboard"
-                className="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
+                className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full"
                 >
                     Lisää uusi taulu täältä
             </Link>
