@@ -10,11 +10,13 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Home from './Views/Home'
 import AddBoard from './Views/AddBoard'
+import AddItem from './Views/AddItem'
+import AddReview from './Views/AddReview'
 import Register from './Views/Register';
 import Login from './Views/Login';
 import './App.css';
 
-window.post = (inputs) => Axios.post('http://localhost:80/React/addboard.php', inputs)
+window.post = (inputs) => Axios.post('http://localhost:80/React/addreview.php', inputs)
 
 function LoginRequired({ loggedIn, children, ...rest}) {
   return <Route {...rest} render={
@@ -64,6 +66,12 @@ function App() {
           </LoginRequired>
           <LoginRequired loggedIn={loggedIn} path="/addboard">
             <AddBoard />
+          </LoginRequired>
+          <LoginRequired loggedIn={loggedIn} path="/additem">
+            <AddItem />
+          </LoginRequired>
+          <LoginRequired loggedIn={loggedIn} path="/addreview">
+            <AddReview />
           </LoginRequired>
           <Route loggedIn={loggedIn} path="/logout">
             <LogOut setLoginStatus={setLoginStatus} />

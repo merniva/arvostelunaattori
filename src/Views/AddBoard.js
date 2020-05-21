@@ -13,7 +13,7 @@ const AddBoard = () => {
         .then(function (response) {
           console.log(response);
           alert('Taulu lisätty, voit nyt luoda sisältöä tauluun!', response);
-          history.push("/profile");
+          history.push("/additem");
         })
         .catch(function (error) {
           // handle error
@@ -43,7 +43,7 @@ const AddBoard = () => {
                 Taulun nimi *
               </label>
               <input type="text" name="table_name" 
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-table_name" type="text" placeholder="Esim. Minun tauluni"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-table_name" type="text" placeholder="Esim. Leffaklubin elokuva-arvostelut"
                 onChange={handleInputChange} value={inputs.table_name} required/>
               {renderFieldError("table_name")}
               <p class="text-gray-600 text-xs justify-left italic">* Pakollinen kenttä.</p>
@@ -53,7 +53,7 @@ const AddBoard = () => {
                 Taulun kuvaus
               </label>
               <textarea rows={5} type="text" name="table_description" 
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4" id="grid-table_description" type="text" placeholder='Esim. Tähän tauluun listaan lempijuttujani'  
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4" id="grid-table_description" type="text" placeholder='Esim. Klassikkoleffoja Itä- ja Kaakkois-Aasiasta'  
               onChange={handleInputChange} value={inputs.table_description} />
               {renderFieldError("table_description")}
             </div>
