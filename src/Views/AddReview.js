@@ -1,17 +1,21 @@
 import React from 'react';
 import { useAddReview } from '../Hooks/CustomHooks';
 import Axios from 'axios';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 
 
 const AddReview = () => {
     let history = useHistory();
     const addReview = () => {
-     //processedInput.table_users = processedInput.table_users.replace(/\s/g, "").split(",")
-     Axios.post('http://localhost:80/React/addreview.php', inputs)
+      //processedInput.table_users = processedInput.table_users.replace(/\s/g, "").split(",")
+     let processedInput = {...inputs};
+     processedInput.item_id = itemId;
+     processedInput.table_id = tableId;
+     processedInput.user_id = localStorage.getItem("userid");
+      Axios.post('http://localhost:80/React/addreview.php', processedInput)
         .then(function (response) {
           console.log(response);
-          alert('Arvostelu lisätty!', response);
+          alert('Arvostelu lisätty käyttäjältä',processedInput.user_id,' tauluun',tableId,' kohteeseen',itemId, response);
           history.push("/profile");
         })
         .catch(function (error) {
@@ -20,6 +24,7 @@ const AddReview = () => {
           alert('Arvostelun lisäys ei onnistunut :(', error);
         })
       }
+      let { itemId,  tableId } = useParams();
       const {inputs, handleInputChange, handleSubmit, fieldErrors} = useAddReview( addReview);
       const hasErrors = !!Object.keys(fieldErrors).length;
       const renderFieldError = field => {
@@ -55,7 +60,7 @@ const AddReview = () => {
               onChange={handleInputChange} value={inputs.item_comment} />
               {renderFieldError("item_comment")}
             </div>
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            {/*<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-item_id">
                 Kohteen id
               </label>
@@ -81,7 +86,7 @@ const AddReview = () => {
             className= "appearance-none block w-full bg-gray-200 mb-4 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-user_id" type="text" placeholder="Esim. 5"
             onChange={handleInputChange} value={inputs.user_id} />
             {renderFieldError("user_id")}
-            </div>
+            </div>*/}
             </div>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">

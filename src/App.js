@@ -36,6 +36,7 @@ function LogOut({ setLoginStatus }) {
   useEffect(() => setLoginStatus(false))
   localStorage.removeItem("access_token");
   localStorage.removeItem("expire_at");
+  localStorage.removeItem("userid");
   return <div>
   <p>Olet kirjautunut ulos</p>
   </div>
@@ -67,10 +68,10 @@ function App() {
           <LoginRequired loggedIn={loggedIn} path="/addboard">
             <AddBoard />
           </LoginRequired>
-          <LoginRequired loggedIn={loggedIn} path="/additem">
+          <LoginRequired loggedIn={loggedIn} path="/additem/:tableId">
             <AddItem />
           </LoginRequired>
-          <LoginRequired loggedIn={loggedIn} path="/addreview">
+          <LoginRequired loggedIn={loggedIn} path="/addreview/table/:tableId/item/:itemId">
             <AddReview />
           </LoginRequired>
           <Route loggedIn={loggedIn} path="/logout">

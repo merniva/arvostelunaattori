@@ -43,7 +43,7 @@ const useRegisterForm = (callback) => {
         return !hasErrors;
         };
     
-    const handleServerResponse = (ok, msg) => {
+  /*  const handleServerResponse = (ok, msg) => {
         // ... 
         if (ok) {
             setFieldErrors({});
@@ -52,7 +52,7 @@ const useRegisterForm = (callback) => {
             message: ""
             });
         }
-        };
+        }; */
 
     const handleSubmit = (event) => {
         if (event) {
@@ -113,17 +113,6 @@ export const useAddBoard = (callback) => {
       setFieldErrors(prev => ({ ...prev, ...errors }));
       return !hasErrors;
       };
-  
-  const handleServerResponse = (ok, msg) => {
-      // ... 
-      if (ok) {
-          setFieldErrors({});
-          setInputs({
-          email: "",
-          message: ""
-          });
-      }
-      };
 
   const handleSubmit = (event) => {
       if (event) {
@@ -166,16 +155,6 @@ export const useAddItem = (callback) => {
       return !hasErrors;
       };
   
-  const handleServerResponse = (ok, msg) => {
-      // ... 
-      if (ok) {
-          setFieldErrors({});
-          setInputs({
-          email: "",
-          message: ""
-          });
-      }
-      };
 
   const handleSubmit = (event) => {
       if (event) {
@@ -215,17 +194,6 @@ export const useAddReview = (callback) => {
       }
       setFieldErrors(prev => ({ ...prev, ...errors }));
       return !hasErrors;
-      };
-  
-  const handleServerResponse = (ok, msg) => {
-      // ... 
-      if (ok) {
-          setFieldErrors({});
-          setInputs({
-          email: "",
-          message: ""
-          });
-      }
       };
 
   const handleSubmit = (event) => {

@@ -14,13 +14,13 @@ const Login = ({ setLoginStatus }) => {
           // handle success
           console.log(response);
           alert('Olet kirjautunut sisään!', response);
+          let jwt = response.data.jwt;
+         // let expire_at = response.data.expireAt;
+          localStorage.setItem("access_token", jwt);
+          localStorage.setItem("userid", response.data.userid);
+          //localStorage.setItem("expire_at", expire_at);
           setLoginStatus(true);
           history.push("/profile");
-          let jwt = response.data.jwt;
-          let expire_at = response.data.expireAt;
-
-          localStorage.setItem("access_token", jwt);
-          localStorage.setItem("expire_at", expire_at);
         })
         .catch(function (error) {
           // handle error
