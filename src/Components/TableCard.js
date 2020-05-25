@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 function TableCard(props){
     return (
         <div className="border mb-4 rounded overflow-hidden">
-            <Link to={`/tables/${props.table.id}`}>
+            {/*<Link to={`/tables/${props.table.id}`}>
                 <div 
                     style={{
                         'backgroundImage': `url('${props.table.images[0].imageUrl}')`,
@@ -12,16 +12,13 @@ function TableCard(props){
                     className="w-full h-64 bg-blue bg-cover"
                 >
                 </div>
-            </Link>
+                </Link>*/}
             <div className="p-3">
-                <h4 className="font-bold text-xl mb-3">
+                <h4 className="font-bold text-xl flex justify-center mb-3">
                     <Link to={`/tables/${props.table.id}`}>
-                        { props.table.name }
+                        { props.table.table_name }
                     </Link>    
                 </h4>
-                <div className="font-bold mb-3">
-                    $ { props.table.price }
-                </div>
                 <div className="mb-3">
                     { props.table.description }
                 </div>

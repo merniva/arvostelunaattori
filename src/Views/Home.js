@@ -5,9 +5,14 @@ import { useAxiosGet } from '../Hooks/HttpRequests'
 import { Link } from "react-router-dom"
 
 function Home(){
-    const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/products?page=1&limit=5`
-    let tables = useAxiosGet(url)
-    
+
+
+    let user_id = localStorage.getItem("userid");
+
+
+    const url = `http://localhost:80/React/getboards.php?user_id=${user_id}`
+    let tables = useAxiosGet(url, user_id)
+
     let content = null
 
     if(tables.error){
@@ -24,7 +29,7 @@ function Home(){
 
     if(tables.data){
         content = 
-        tables.data.map((table) => 
+        tables.data.tables.map((table) => 
             <div key={table.id} className="flex-no-shrink w-full md:w-1/4 md:px-3">
                 <TableCard 
                     table={table}
