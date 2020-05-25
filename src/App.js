@@ -12,6 +12,7 @@ import Home from './Views/Home'
 import AddBoard from './Views/AddBoard'
 import AddItem from './Views/AddItem'
 import AddReview from './Views/AddReview'
+import ShowTable from './Views/Table'
 import Register from './Views/Register';
 import Login from './Views/Login';
 import './App.css';
@@ -73,6 +74,9 @@ function App() {
           </LoginRequired>
           <LoginRequired loggedIn={loggedIn} path="/addreview/table/:tableId/item/:itemId">
             <AddReview />
+          </LoginRequired>
+          <LoginRequired loggedIn={loggedIn} path="/tables/table_id/:tableId">
+            <ShowTable />
           </LoginRequired>
           <Route loggedIn={loggedIn} path="/logout">
             <LogOut setLoginStatus={setLoginStatus} />
