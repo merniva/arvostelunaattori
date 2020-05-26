@@ -13,7 +13,7 @@ const AddItem = () => {
       .then(function (response) {
         console.log(response);
         alert("Uusi kohde lisätty, voit nyt arvostella kohteen!", response);
-        history.push(`/addreview/table/${tableId}/item/${response.data.itemid}`);
+        history.push(`/tables/table_id/${tableId}`);
       })
       .catch(function (error) {
         // handle error

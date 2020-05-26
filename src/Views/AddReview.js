@@ -1,8 +1,24 @@
-import React from 'react';
-import { useAddReview } from '../Hooks/CustomHooks';
-import Axios from 'axios';
-import {useHistory, useParams} from 'react-router-dom';
+import React, {useState} from 'react'
+import { useAddReview } from '../Hooks/CustomHooks'
+import Axios from 'axios'
+import {useHistory, useParams} from 'react-router-dom'
+import StarRatings from 'react-star-ratings'
 
+function Rater({ onChange, name }) {
+  const [rating, changeRating] = useState(0.0)
+  return <StarRatings
+    rating={rating}
+    starRatedColor="#F6AD55"
+    changeRating={(value) => {
+      let result = { target:{value, name}, persist:()=>{}}
+      console.log(value)
+      changeRating(value);
+      onChange(result);
+    }}
+    numberOfStars={5}
+    name='rating'
+  />;
+}
 
 const AddReview = () => {
     let history = useHistory();
@@ -15,8 +31,8 @@ const AddReview = () => {
       Axios.post('http://localhost:80/React/addreview.php', processedInput)
         .then(function (response) {
           console.log(response);
-          alert('Arvostelu lisätty käyttäjältä',processedInput.user_id,' tauluun',tableId,' kohteeseen',itemId, response);
-          history.push("/profile");
+          alert('Arvostelu lisätty!', response);
+          history.push(`/tables/table_id/${tableId}`);
         })
         .catch(function (error) {
           // handle error
@@ -42,17 +58,15 @@ const AddReview = () => {
           Lisää uusi arvostelu
           </h1>
           <div className="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <div class="w-full px-3 mb-6 md:mb-0">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-item_rating">
                Arvostelusi
               </label>
-            <input type="text" name="item_rating" 
-            className= "appearance-none block w-full bg-gray-200 mb-4 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-item_rating" type="text" placeholder=""
-            onChange={handleInputChange} value={inputs.item_rating} />
+            <Rater name="item_rating" onChange={handleInputChange} />
             {renderFieldError("item_rating")}
             </div>
             <div class="w-full px-3">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-item_comment">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-6" for="grid-item_comment">
                 Kommenttisi
               </label>
               <textarea rows={3} type="text" name="item_comment" 

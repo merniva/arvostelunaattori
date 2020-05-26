@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 //import Loader from '../Components/Loader'
 import { useAxiosGet } from '../Hooks/HttpRequests'
 import TableDetails from '../Components/TableDetails'
@@ -28,10 +28,34 @@ function ShowTable(){
 
     if(table.data){
         content = 
-        table.data.details.map((table) => 
-            <div key={table.id} className="flex-no-shrink w-full">
+        table.data.details.reduce((all, current, idx, source) => {
+            
+            const exists = all.find(detail => detail && detail.id === current.id)
+            if(exists) {
+                return all;
+            }
+
+            const result = {...current}
+            const filteredResults = source
+                .filter(detail => detail.id === current.id)
+            result.average = filteredResults
+                .reduce((numbers, currentNumber) => {
+                    if (!currentNumber.rating) {
+                        return numbers;
+                    }
+                    let parsedCurrentNumber = parseInt(currentNumber.rating)
+                    let sum = numbers + parsedCurrentNumber
+                    console.log("average", numbers, currentNumber, parsedCurrentNumber, sum)
+                    return sum;
+                }, 0)
+            result.average = result.average / filteredResults.length;
+            console.log('result average', result)
+            return [...all, result]
+        }, []).map((tableItem) => 
+            <div key={tableItem.id}>
                 <TableDetails 
-                    table={table}
+                    tableItem={tableItem}
+                    parentTableId={table.data.table.id}
                 />
             </div>
         )
@@ -52,6 +76,12 @@ function ShowTable(){
                 {header}
             </h4>
             {content}
+            <Link 
+                    to={`/additem/${tableId}`}
+                    className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full"
+                    >
+                        Lisää uusi kohde
+            </Link>
         </div>
     )
 }
