@@ -40,19 +40,19 @@ function Home(){
 
     return (
         <div className="container mx-auto">
-            <h1 className="md:flex flex-wrap md:-mx-3 mb-4 justify-center">
-                Tämä on profiilisivu
+            <h1 className="md:flex flex-wrap md:-mx-3 mb-4 justify-center text-lg tracking-wide font-bold">
+                Sinun taulusi
             </h1>
+            <div className="md:flex flex-wrap md:-mx-3">
+                { content } 
+            </div>
             <div className="md:flex flex-wrap md:-mx-3 mb-4 justify-center">
             <Link 
                 to="/addboard"
-                className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full"
+                className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 mt-6 rounded-full"
                 >
-                    Lisää uusi taulu täältä
+                    Lisää uusi taulu
             </Link>
-            </div>
-            <div className="md:flex flex-wrap md:-mx-3">
-                { content } 
             </div>
         </div>
     )

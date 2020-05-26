@@ -13,6 +13,11 @@ const boardValidationRules = {
   message: val => !!val
 }
 
+const itemValidationRules = {
+  item_name: val => val && val.length >5,
+  description: val => !!val
+}
+
 const checkPassword = (password, password2) => {
     return password === password2;
 }
@@ -146,8 +151,8 @@ export const useAddItem = (callback) => {
       let errors = {};
       let hasErrors = false;
       for (let key of Object.keys(inputs)) {
-          if(boardValidationRules[key]) {
-              errors[key] = !boardValidationRules[key](inputs[key]);
+          if(itemValidationRules[key]) {
+              errors[key] = !itemValidationRules[key](inputs[key]);
               hasErrors |= errors[key];
           }
       }

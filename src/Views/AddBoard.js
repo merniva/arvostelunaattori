@@ -15,8 +15,8 @@ const AddBoard = () => {
     Axios.post("http://localhost:80/React/addboard.php", processedInput)
       .then(function (response) {
         console.log(response);
-        alert("Taulu lisätty, voit nyt luoda sisältöä tauluun!", response);
-        history.push(`/additem/${response.data.tableid}`);
+        alert("Taulu lisätty, voit nyt luoda sisältöä tauluun!");
+        history.push("/profile");
       })
       .catch(function (error) {
         // handle error
@@ -30,7 +30,7 @@ const AddBoard = () => {
   const hasErrors = !!Object.keys(fieldErrors).length;
   const renderFieldError = (field) => {
     if (fieldErrors[field]) {
-      return <p className="errorMsg">Please enter a valid {field}.</p>;
+      return <p className="errorMsg">Pahoittelut, jotain meni pieleen!</p>;
     }
   };
   return (
@@ -55,6 +55,7 @@ const AddBoard = () => {
               type="text"
               placeholder="Esim. Leffaklubin elokuva-arvostelut"
               onChange={handleInputChange}
+              autoComplete="off"
               value={inputs.table_name}
               required
             />
@@ -77,6 +78,7 @@ const AddBoard = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4"
               id="grid-table_description"
               type="text"
+              autoComplete="off"
               placeholder="Esim. Klassikkoleffoja Itä- ja Kaakkois-Aasiasta"
               onChange={handleInputChange}
               value={inputs.table_description}
@@ -98,6 +100,7 @@ const AddBoard = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-users"
               type="text"
+              autoComplete="off"
               placeholder="Esim. ystävä1@taulutiimi.fi, ystävä2@taulutiimi.fi, ystävä3@taulutiimi.fi"
               onChange={handleInputChange}
               value={inputs.table_users}

@@ -71,14 +71,14 @@ function ShowTable(){
     }
 
     return (
-        <div className="container mx-auto justify-center">
+        <div className="container mx-auto justify-center mb-6">
             <h4 className="block font-bold text-xl flex justify-center mb-3">
                 {header}
             </h4>
             {content}
             <Link 
                     to={`/additem/${tableId}`}
-                    className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full"
+                    className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 mt-4 rounded-full"
                     >
                         Lisää uusi kohde
             </Link>

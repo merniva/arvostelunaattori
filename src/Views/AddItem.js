@@ -12,7 +12,7 @@ const AddItem = () => {
     Axios.post("http://localhost:80/React/additem.php", processedInput)
       .then(function (response) {
         console.log(response);
-        alert("Uusi kohde lisätty, voit nyt arvostella kohteen!", response);
+        alert("Uusi kohde lisätty, voit nyt arvostella kohteen!");
         history.push(`/tables/table_id/${tableId}`);
       })
       .catch(function (error) {
@@ -53,6 +53,7 @@ const AddItem = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-item_name"
               type="text"
+              autoComplete="off"
               placeholder="Esim. Seitsemän samuraita"
               onChange={handleInputChange}
               value={inputs.item_name}
@@ -83,25 +84,6 @@ const AddItem = () => {
             />
             {renderFieldError("item_description")}
           </div>
-          {/* <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-table_id"
-            >
-              Taulu-id
-            </label>
-            <input
-              type="text"
-              name="table_id"
-              className="appearance-none block w-full bg-gray-200 mb-4 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-table_id"
-              type="text"
-              placeholder="Esim. 24"
-              onChange={handleInputChange}
-              value={inputs.table_id}
-            />
-            {renderFieldError("table_id")}
-        </div> */}
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
