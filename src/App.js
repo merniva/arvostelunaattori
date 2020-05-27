@@ -44,7 +44,7 @@ function LogOut({ setLoginStatus }) {
 }
 
 function App() {
-  const [loggedIn, setLogin] = useState(localStorage.getItem("loginstatus") || false);
+  const [loggedIn, setLogin] = useState(JSON.parse(localStorage.getItem("loginstatus")) || false);
   const setLoginStatus = (status) => {
     setLogin(status);
     localStorage.setItem("loginstatus", status);
