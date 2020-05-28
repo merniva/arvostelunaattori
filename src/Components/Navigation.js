@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useTransition, animated } from 'react-spring'
 import NavigationMenu from './NavigationMenu'
-// import { faBars, FontAwesomeIcon } from 'font-awesome/css/font-awesome.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 

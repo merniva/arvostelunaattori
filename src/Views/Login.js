@@ -1,9 +1,9 @@
-import React from "react";
-import { useLoginForm } from "../Hooks/CustomHooks";
-import Axios from "axios";
-import { useHistory } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import React from "react"
+import { useLoginForm } from "../Hooks/CustomHooks"
+import Axios from "axios"
+import { useHistory } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons"
 
 const Login = ({ setLoginStatus }) => {
   let history = useHistory();

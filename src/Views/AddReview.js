@@ -40,7 +40,7 @@ const AddReview = () => {
       .catch(function (error) {
         // handle error
         console.log(error);
-        alert("Arvostelun lisäys ei onnistunut :(", error);
+        alert("Arvostelun lisääminen ei onnistunut!", error);
       });
   };
   let { itemId, tableId } = useParams();
@@ -57,7 +57,7 @@ const AddReview = () => {
   };
   return (
     <div className="flex justify-center">
-      <form className="w-full max-w-lg" onSubmit={handleSubmit} noValidate>
+      <form className="w-full max-w-lg" onSubmit={handleSubmit}>
         <h1 className="block text-lg tracking-wide font-bold mb-6 py-2 whitespace-no-wrap">
           Lisää uusi arvostelu
         </h1>
@@ -69,7 +69,7 @@ const AddReview = () => {
             >
               Arvostelusi
             </label>
-            <Rater name="item_rating" onChange={handleInputChange} />
+            <Rater name="item_rating" onChange={handleInputChange}/>
             {renderFieldError("item_rating")}
           </div>
           <div class="w-full px-3">
@@ -94,14 +94,23 @@ const AddReview = () => {
             {renderFieldError("item_comment")}
           </div>
         </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
+        <div className="flex flex-wrap -mx-3">
+          <div className="w-full mt-2 px-3 lg:w-1/3 xl:w-1/3">
             <button
               disabled={hasErrors}
               type="submit"
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
             >
               Lisää arvostelu
+            </button>
+          </div>
+          <div className="w-full mt-2 px-3 lg:w-2/3 xl:w-2/3">
+            <button
+              type="back"
+              className="bg-white hover:bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded-full"
+              onClick={()=>history.goBack()}
+            >
+              Takaisin
             </button>
           </div>
         </div>

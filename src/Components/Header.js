@@ -11,7 +11,3 @@ function Header({loggedIn}){
 }
 
 export default Header
-
-/*<Link to="/" className="font-bold">
-                Hauska sivusto
-            </Link> */

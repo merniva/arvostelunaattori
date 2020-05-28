@@ -1,7 +1,7 @@
-import React from "react";
-import { useAddBoard } from "../Hooks/CustomHooks";
-import Axios from "axios";
-import { useHistory } from "react-router-dom";
+import React from "react"
+import { useAddBoard } from "../Hooks/CustomHooks"
+import Axios from "axios"
+import { useHistory } from "react-router-dom"
 
 const AddBoard = () => {
   let history = useHistory();
@@ -33,9 +33,11 @@ const AddBoard = () => {
       return <p className="errorMsg">Pahoittelut, jotain meni pieleen!</p>;
     }
   };
+  const fieldsAreEmpty = !Object.keys(inputs).length;
+
   return (
     <div className="flex justify-center">
-      <form className="w-full max-w-lg" onSubmit={handleSubmit} noValidate>
+      <form className="w-full max-w-lg" onSubmit={handleSubmit}>
         <h1 className="block text-lg tracking-wide font-bold mb-6 py-2 whitespace-no-wrap">
           Luo uusi taulu
         </h1>
@@ -101,24 +103,16 @@ const AddBoard = () => {
               id="grid-users"
               type="text"
               autoComplete="off"
-              placeholder="Esim. ystävä1@taulutiimi.fi, ystävä2@taulutiimi.fi, ystävä3@taulutiimi.fi"
+              placeholder="Esim. ystävä1@taulutiimi.fi, ystävä2@taulutiimi.fi jne."
               onChange={handleInputChange}
               value={inputs.table_users}
+              required
             />
             {renderFieldError("table_users")}
             <p class="text-gray-600 text-xs italic">
               Huom! Erotathan käyttäjien sähköpostiosoitteet pilkulla.
             </p>
           </div>
-          {/* <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-user_id">
-                Käyttäjä-id
-              </label>
-            <input type="text" name="user_id" 
-            className= "appearance-none block w-full bg-gray-200 mb-4 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-user_id" type="text" placeholder=""
-            onChange={handleInputChange} value={inputs.user_id} />
-            {renderFieldError("user_id")}
-            </div> */}
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
