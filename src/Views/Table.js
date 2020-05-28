@@ -27,17 +27,25 @@ function ShowTable() {
   }
 
   if (table.data) {
+    // Go through list of details
     content = table.data.details
       .reduce((all, current, idx, source) => {
+        // Check if detail is already found in list
         const exists = all.find((detail) => detail && detail.id === current.id);
         if (exists) {
+            // Pass if found
           return all;
         }
 
+        // Copy current object we're going through
         const result = { ...current };
+
+        // Find all occurences with the same id
         const filteredResults = source.filter(
           (detail) => detail.id === current.id
         );
+
+        // Count sum of all ratings, add to current object
         result.average = filteredResults.reduce((numbers, currentNumber) => {
           if (!currentNumber.rating) {
             return numbers;
@@ -53,8 +61,10 @@ function ShowTable() {
           );
           return sum;
         }, 0);
+        // Turn sum to average
         result.average = result.average / filteredResults.length;
         console.log("result average", result);
+        // DONE
         return [...all, result];
       }, [])
       .map((tableItem) => (
