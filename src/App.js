@@ -71,8 +71,7 @@ function App() {
             <Route exact path="/">
               <div>
                 <p>
-                  Tämä on etusivu ja tähän on tarkoitus tulla kaikenlaista
-                  liirumlaarumia
+                  Tämä on etusivu. Täällä ei ole paljon sisältöä - näkisit enemmän, jos rekisteröityisit!
                 </p>
               </div>
             </Route>

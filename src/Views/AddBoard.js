@@ -1,7 +1,7 @@
-import React from "react"
-import { useAddBoard } from "../Hooks/CustomHooks"
-import Axios from "axios"
-import { useHistory } from "react-router-dom"
+import React from "react";
+import { useAddBoard } from "../Hooks/CustomHooks";
+import Axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const AddBoard = () => {
   let history = useHistory();
