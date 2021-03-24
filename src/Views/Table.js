@@ -16,7 +16,7 @@ function ShowTable() {
     content = (
       <div>
         <div className="bg-red-300 p-3">
-          Odottamaton ongelma. Ole hyvä ja päivitä tai sulje sivu.
+          Jotain meni pieleen! Ole hyvä ja päivitä tai sulje sivu.
         </div>
       </div>
     );
